@@ -1,0 +1,1099 @@
+{
+	"info": {
+		"_postman_id": "6e876153-abaf-4b87-bbe2-30e571d56e7d",
+		"name": "NewsAPP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AUTH",
+			"item": [
+				{
+					"name": "LOGIN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"token\", pm.response.json().token.token);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"teste@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/auth/login",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "REFRESH",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/auth/refresh",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "REFRESH Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/auth/refresh",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "USER",
+			"item": [
+				{
+					"name": "CREATE USER",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Yasmin\",\r\n    \"email\":\"yas@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/user",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE USER",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\":\"64dd71087aebcac3f095154e\",\r\n    \"nome\":\"testeFullUpdated\",\r\n    \"email\":\"testeFull@gmail.com\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/user/64dd71087aebcac3f095154e",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"user",
+								"64dd71087aebcac3f095154e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE USER",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/user/64e61b4bccfae1b82aa6a7a2",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"user",
+								"64e61b4bccfae1b82aa6a7a2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET USER",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/user/64f517c0068e22148136a124",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"user",
+								"64f517c0068e22148136a124"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL USERS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/user",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "RATE NEWS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userProfile\":\"64f1fd4c1d5d8bc5650b85c5\",\r\n    \"news\":\"64e6a40dd02926785b6a4c89\",\r\n    \"rate\":4.3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/user/rateNews",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"user",
+								"rateNews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CLICK NEWS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userProfile\":\"64f517c0068e22148136a126\",\r\n    \"news\":\"64e274a0d39de10f509f4caa\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/user/clickNews",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"user",
+								"clickNews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADD READING TIME",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userProfile\":\"64f1fd4c1d5d8bc5650b85c5\",\r\n    \"news\":\"64e6a40dd02926785b6a4c89\",\r\n    \"readingTime\":10000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/user/addReadingTime",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"user",
+								"addReadingTime"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SELECT CATEGORIES",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"userProfile\":\"64f1fd4c1d5d8bc5650b85c5\",\r\n    \"categories\":[\r\n        \"64e22ea287610e89f2762be8\",\r\n        \"64e6a3683b48c256a56660dd\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/user/selectCategories",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"user",
+								"selectCategories"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CATEGORY",
+			"item": [
+				{
+					"name": "CREATE CATEGORY",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Política\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/category",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE CATEGORY",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\":\"64e22edd87610e89f2762bec\",\r\n    \"name\":\"Política\"\r\n    \r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/category/64e22edd87610e89f2762bec",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"category",
+								"64e22edd87610e89f2762bec"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE CATEGORY",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/category/64e6a3683b48c256a56660dd",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"category",
+								"64e6a3683b48c256a56660dd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET CATEGORY",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/category/64e6a3683b48c256a56660dd",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"category",
+								"64e6a3683b48c256a56660dd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL CATEGORIES",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/category",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TAG",
+			"item": [
+				{
+					"name": "GET TAG",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/tag/64e90ea166a497a3f2319b27",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"tag",
+								"64e90ea166a497a3f2319b27"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL TAGS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/tag",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"tag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE TAG",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"value\":\"testeTag\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/tag",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"tag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE TAG",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\":\"64e8c961654d24f280fe7820\",\r\n    \"value\":\"governo\"\r\n    \r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/tag/64e8c961654d24f280fe7820",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"tag",
+								"64e8c961654d24f280fe7820"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE TAG",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/tag/64e9115a73ceb5f83259f3dc",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"tag",
+								"64e9115a73ceb5f83259f3dc"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SUBTAG",
+			"item": [
+				{
+					"name": "GET SUBTAG",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/subtag/64e93dfff7888f7fa8e509eb",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"subtag",
+								"64e93dfff7888f7fa8e509eb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL SUBTAGS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/subtag",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"subtag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE SUBTAG",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"value\":\"teste\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/subtag",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"subtag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE SUBTAG",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\":\"64e93dfff7888f7fa8e509eb\",\r\n    \"value\":\"bolsonaro\"\r\n    \r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/subtag/64e93e5cf7888f7fa8e509f3",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"subtag",
+								"64e93e5cf7888f7fa8e509f3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE SUBTAG",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/subtag/64e93e5cf7888f7fa8e509f3",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"subtag",
+								"64e93e5cf7888f7fa8e509f3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "KEYWORD",
+			"item": [
+				{
+					"name": "GET KEYWORD",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/category/64e22ea287610e89f2762be8",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"category",
+								"64e22ea287610e89f2762be8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL KEYWORDS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/category",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CREATE KEYWORKD",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"value\":\"Política\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/keyword",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"keyword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE KEYWORD",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\":\"64e22edd87610e89f2762bec\",\r\n    \"name\":\"Política\"\r\n    \r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/category/64e22edd87610e89f2762bec",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"category",
+								"64e22edd87610e89f2762bec"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE KEYWORD",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/category/64e22edd87610e89f2762bec",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"category",
+								"64e22edd87610e89f2762bec"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "USER PROFILE",
+			"item": [
+				{
+					"name": "CREATE USER PROFILE",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"teste 3\",\r\n    \"email\":\"teste3@gmail.com\",\r\n    \"password\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/user-profile",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"user-profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE USER PROFILE",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\":\"64dd71087aebcac3f095154e\",\r\n    \"nome\":\"testeFullUpdated\",\r\n    \"email\":\"testeFull@gmail.com\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/user/64dd71087aebcac3f095154e",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"user",
+								"64dd71087aebcac3f095154e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE USER PROFILE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/user/64d43c4144fab48f997ef042",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"user",
+								"64d43c4144fab48f997ef042"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET USER PROFILE",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/user-profile/64f1fd4c1d5d8bc5650b85c5",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"user-profile",
+								"64f1fd4c1d5d8bc5650b85c5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL USER PROFILES",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/user-profile",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"user-profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "NEWS",
+			"item": [
+				{
+					"name": "CREATE NEWS",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Exciting Politics News\",\r\n    \"subtitle\":\"A Breakthrough Discovery!\",\r\n    \"body\":\"Lorem ipsum dolor sit amet...\",\r\n    \"images\":[],\r\n    \"date\":\"12/07/2023\",\r\n    \"source\":\"Revista Veja\",\r\n    \"category\":{\r\n    \"_id\": \"64e6a3683b48c256a56660dd\",\r\n    \"name\": \"Política\",\r\n    \"active\": true,\r\n    \"createdAt\": \"2023-08-24T00:25:12.247Z\",\r\n    \"updatedAt\": \"2023-08-24T00:25:12.247Z\",\r\n    \"__v\": 0\r\n},\r\n    \"active\":true\r\n\r\n\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/news",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"news"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE NEWS",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\":\"64dd71087aebcac3f095154e\",\r\n    \"nome\":\"testeFullUpdated\",\r\n    \"email\":\"testeFull@gmail.com\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/news/64dd71087aebcac3f095154e",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"news",
+								"64dd71087aebcac3f095154e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE NEWS",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/news/64e27c9a050971c12123e7bd",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"news",
+								"64e27c9a050971c12123e7bd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET NEWS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/news/5b6f626a656374205365745d",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"news",
+								"5b6f626a656374205365745d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL NEWS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}{{port}}{{apiPath}}/news",
+							"host": [
+								"{{localhost}}{{port}}{{apiPath}}"
+							],
+							"path": [
+								"news"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
