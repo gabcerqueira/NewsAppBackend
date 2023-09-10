@@ -14,10 +14,12 @@ import { ClickNewsDto } from './dto/clickNews';
 import { ReadingTimeDto } from './dto/readingTime';
 import { SelectCategoriesDto } from './dto/categoriesDto';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
+import { IuserController } from './interfaces/Iuser.controller';
+import { SanitizedUser } from './dto/sanitizedUser';
 
 @ApiTags('Módulo de usuários')
 @Controller('user')
-export class UserController {
+export class UserController implements IuserController {
   constructor(private readonly userService: UserService) {}
 
   @Post()
