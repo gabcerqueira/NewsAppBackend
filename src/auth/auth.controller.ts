@@ -9,7 +9,7 @@ import { User } from 'src/user/schema/user.schema';
 import { ParamsDictionary } from 'express-serve-static-core';
 import { DecodedToken } from './dto/decodedToken';
 
-@ApiTags('CRUD de login.')
+@ApiTags('Módulo de login')
 @Controller('auth')
 export class AuthController implements IauthController {
   constructor(private readonly authService: AuthService) {}
