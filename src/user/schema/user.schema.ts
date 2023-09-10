@@ -24,7 +24,6 @@ export class User {
   active: boolean;
 
   /*
-
     @Prop({ type: MongoSchema.Types.ObjectId, ref: () => News }) // Defina a referência à categoria
   favoriteNews: News[];
 
@@ -32,13 +31,11 @@ export class User {
   likedNews: News[];
 
 
-
-
     */
   @Prop({ type: MongoSchema.Types.ObjectId, ref: () => UserProfile }) // Defina a referência à categoria
-  userProfile: UserProfile;
+  userProfile?: UserProfile;
 
-  _id: Types.ObjectId | string;
+  _id?: Types.ObjectId | string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

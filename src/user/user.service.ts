@@ -36,7 +36,7 @@ export class UserService implements IuserService {
 
       let newUserProfile = new UserProfile();
 
-      newUserProfile.userId = createdUser._id;
+      newUserProfile.userId = createdUser._id!;
 
       createdUser.userProfile = await this.userProfileService.create(
         newUserProfile,
@@ -265,11 +265,11 @@ export class UserService implements IuserService {
 
   sanitizeUser(user: User): SanitizedUser {
     let sanitizedUser: SanitizedUser = {
-      _id: user._id,
+      _id: user._id!,
       email: user.email,
       name: user.name,
       active: user.active,
-      userProfile: user.userProfile,
+      userProfile: user.userProfile!,
 
       //favoriteNews: user.favoriteNews,
       //likedNews: user.likedNews,

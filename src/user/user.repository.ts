@@ -4,8 +4,9 @@ import { Model } from 'mongoose';
 import { User, UserDocument } from './schema/user.schema';
 import { hash } from 'bcrypt';
 import { ErrorMessages } from 'src/shared/messages/ErrorMessages';
+import { IuserRepository } from './interfaces/Iuser.repository';
 @Injectable()
-export class UserRepository {
+export class UserRepository implements IuserRepository {
   constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
 
   async createUser(userDto: User): Promise<User> {

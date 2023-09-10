@@ -13,8 +13,21 @@ describe('CategoryController', () => {
 
     controller = module.get<CategoryController>(CategoryController);
   });
+  /*
 
   it('should be defined', () => {
     expect(controller).toBeDefined();
+  });
+
+  */
+
+  describe('find one', () => {
+    it('should return one user', async () => {
+      const id = '64e22ea287610e89f2762be8';
+
+      const result = await controller.findOne(id);
+
+      expect(result!._id).toBe(id);
+    });
   });
 });
